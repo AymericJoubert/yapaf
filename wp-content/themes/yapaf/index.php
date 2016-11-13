@@ -12,7 +12,7 @@
 		<article>
 			<?php 
 			/**
-			 * ATTENTION : the_title() et get_the_title() sont deux fonctions différentes : 
+			 * ATTENTION : the_title() et get_the_title() sont deux fonctions diffï¿½rentes : 
 			 * the_title() <==> echo apply_filters('the_title', get_the_title) 
 			 */
 			 ?>
@@ -20,7 +20,7 @@
 			
 			<?php
 			/**
-			 * ATTENTION : De même que pour les fonctions title et get_the_title
+			 * ATTENTION : De mï¿½me que pour les fonctions title et get_the_title
 			 **/
 			 ?>
 			<div>
@@ -29,8 +29,8 @@
 			
 			<?php 
 			/**
-			 *	the_post_thumbnail() permet d'afficher l'image à la une. 
-			 *	Note : Si vous souhaitez ajouter un attribut à l'image il faut utiliser la fonction comme ceci : 
+			 *	the_post_thumbnail() permet d'afficher l'image ï¿½ la une. 
+			 *	Note : Si vous souhaitez ajouter un attribut ï¿½ l'image il faut utiliser la fonction comme ceci : 
 			 *	the_post_thumbnail('post-thumbnail', array('class' => 'img-responsive', 'rel' => 'toto' ...);
 			 **/
 			 ?>
@@ -44,10 +44,10 @@
 		<?php 
 		/**
 		 * on utilise ici la fonction _e() qui permet de rendre la chaine traductible. 
-		 * Le second paramètre représente le "text domain" définis dans le fichier style.css de notre theme.
+		 * Le second paramï¿½tre reprï¿½sente le "text domain" dï¿½finis dans le fichier style.css de notre theme.
 		 **/
 		 ?>
-		<?php _e('Veuillez ecrire votre priemier article','skeleton'); ?>
+		<?php _e('Veuillez ecrire votre priemier article','yapaf'); ?>
 	</div>
 <?php endif; ?>
 

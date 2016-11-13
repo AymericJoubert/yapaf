@@ -1,10 +1,5 @@
 <?php
 
-/* --------------------
- * Customizer
- * --------------------*/
- // Pour plus de clart� on externalise la gestion des options de personalisation
- require_once  get_template_directory_uri().'/inc/customizer.php';
 
 /* --------------------
  * Les menus
@@ -17,8 +12,8 @@
  **/
 register_nav_menus( 
 	array(
-		'Header' => _e('Navigation principale','yapaf'),
-		'Footer' => _e('Navigation alternative','yapaf'),
+		'Header' => __('Navigation principale','yapaf'),
+		'Footer' => __('Navigation alternative','yapaf'),
 	) 
 );
 
@@ -39,9 +34,13 @@ function styleAndScripts(){
 	 * Le second est le chemin du script (on utilise la fonctino get_template_directory_uri afin de recuperer le chemin absolu du theme)
 	 * Le troisiement facultatif est un tableau de d�pendance
 	 **/
-    wp_enqueue_style('style', get_template_directory_uri().'/style.css');
+    wp_enqueue_style('bootstrap_css', get_template_directory_uri().'/css/bootstrap.min.css');
+    wp_enqueue_style('font-awesome_css', get_template_directory_uri().'/css/font-awesome.min.css');
+    wp_enqueue_style('style', get_template_directory_uri().'/style.css', array('bootstrap_css', 'font-awesome_css'));
 
     wp_enqueue_script('jquery', get_template_directory_uri(). '/js/jquery-3.1.1.min.js');
+    wp_enqueue_script('bootstrap_js', get_template_directory_uri(). '/js/bootstrap.min.js', array('jquery'));
+
 	// On indique explicitement que le fichier app.js � besoin de jquery pour charger
     wp_enqueue_script('app', get_template_directory_uri(). '/js/app.js', array('jquery'));
 }

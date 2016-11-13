@@ -1,8 +1,11 @@
-	
-	
+
+
+
+
+	<?php wp_nav_menu( array( 'theme_location' => 'Footer' ) ); ?>
 	<?php 
 		/**
-		 * Ici on ferme les balises non fermé dans le header
+		 * Ici on ferme les balises non fermï¿½ dans le header
 		 */
 	 ?>
 	</body>

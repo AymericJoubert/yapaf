@@ -75,7 +75,7 @@
 			 * La déclaration de ce menu ce fait dans le fichier function.php
 			 **/
 			?>
-			<?php wp_nav_menu( array( 'theme_location' => 'Top' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'Header' ) ); ?>
 		</div>
 	</header>
 	
