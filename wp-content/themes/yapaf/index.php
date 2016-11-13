@@ -1,26 +1,60 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * e.g., it puts together the home page when no home.php file exists.
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
+ * Ficher principal du theme. 
+ * On charge le header (header.php)
  */
+ get_header();  
+?>
 
-get_header(); ?>
 
-<div style="height:100vh;position:relative;background:#000;">
-	<div style="font-size:10vw;color:#80805B;position:absolute;top:50%;left:50%;display:block;transform:translate(-50%, -50%);">
-		R.T.F.M
+<?php if(have_posts()): // Si il y a des posts on boucle dessus?> 
+	<?php while(have_posts()): the_post(); ?>
+		<article>
+			<?php 
+			/**
+			 * ATTENTION : the_title() et get_the_title() sont deux fonctions différentes : 
+			 * the_title() <==> echo apply_filters('the_title', get_the_title) 
+			 */
+			 ?>
+			<h1><?php the_title(); ?></h1>
+			
+			<?php
+			/**
+			 * ATTENTION : De même que pour les fonctions title et get_the_title
+			 **/
+			 ?>
+			<div>
+				<?php the_content(); ?>
+			</div>
+			
+			<?php 
+			/**
+			 *	the_post_thumbnail() permet d'afficher l'image à la une. 
+			 *	Note : Si vous souhaitez ajouter un attribut à l'image il faut utiliser la fonction comme ceci : 
+			 *	the_post_thumbnail('post-thumbnail', array('class' => 'img-responsive', 'rel' => 'toto' ...);
+			 **/
+			 ?>
+			<div>
+				<?php the_post_thumbnail(); ?>
+			<div>
+		</article>
+	<?php endwhile; ?>
+<?php else: // Sinon on affiche un message d'erreur?>
+	<div class="errors">
+		<?php 
+		/**
+		 * on utilise ici la fonction _e() qui permet de rendre la chaine traductible. 
+		 * Le second paramètre représente le "text domain" définis dans le fichier style.css de notre theme.
+		 **/
+		 ?>
+		<?php _e('Veuillez ecrire votre priemier article','skeleton'); ?>
 	</div>
-</div>
+<?php endif; ?>
 
-<?php get_footer(); ?>
+
+<?php
+/**
+ * On charge le foooter
+ **/
+get_footer(); ?>
 
